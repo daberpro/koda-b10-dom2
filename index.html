@@ -14,6 +14,41 @@
             <div id="green" class="green-off"></div>
         </div>
     </div>
+    <script>
+        const red = document.querySelector("#red");
+        const yellow = document.querySelector("#yellow");
+        const green = document.querySelector("#green");
 
+        function updateRed(){
+            green.classList.remove("green");
+            green.classList.add("green-off");
+            red.classList.add("red");
+            red.classList.remove("red-off");
+            setTimeout(()=>{
+                updateYellow();
+            },3000);
+        }
+
+        function updateYellow(){
+            red.classList.remove("red");
+            red.classList.add("red-off");
+            yellow.classList.add("yellow");
+            yellow.classList.remove("yellow-off");
+            setTimeout(()=>{
+                updateGreen();
+            },2000);
+        }
+
+        function updateGreen(){
+            yellow.classList.remove("yellow");
+            yellow.classList.add("yellow-off");
+            green.classList.add("green");
+            green.classList.remove("green-off");
+            setTimeout(()=>{
+                updateRed();
+            },3000);
+        }
+
+    </script>
 </body>
 </html>
